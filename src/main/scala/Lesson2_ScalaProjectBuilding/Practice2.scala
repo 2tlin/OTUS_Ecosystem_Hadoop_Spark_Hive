@@ -35,16 +35,16 @@ object Practice2 extends App {
   val jsonString = file.getLines().mkString
 
   case class Name(official: String)
-  case class Company(name: Name, region: String, capital: Seq[String], area: Float)
+  case class Country(name: Name, region: String, capital: Seq[String], area: Float)
   case class Result(name: String, capital: String, area: Int)
 
-  val result = parser.decode[List[Company]](jsonString) match {
+  val result = parser.decode[List[Country]](jsonString) match {
     case Left(ex) => ex.getMessage
     case Right(countryList) => countryList
       .filter(_.region == "Africa")
       .sortBy(- _.area)
       .take(10)
-      .map(company => Result(company.name.official, company.capital.head, company.area.toInt))
+      .map(country => Result(country.name.official, country.capital.head, country.area.toInt))
       .asJson
   }
 
