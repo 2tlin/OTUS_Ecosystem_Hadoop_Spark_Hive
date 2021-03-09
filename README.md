@@ -1,0 +1,2 @@
+# OTUS_Ecosystem_Hadoop_Spark_Hive
+OTUS Ecosystem_Hadoop_Spark_Hive 5-months online course
